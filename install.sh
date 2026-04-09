@@ -16,3 +16,10 @@ fi
 
 ln -sf $(pwd)/.zshrc ~/.zshrc
 ln -sf $(pwd)/.gitconfig ~/.gitconfig
+
+# Set up the credential helper to use your Master Token for GitHub
+git config --global credential.helper "! f() { echo \"username=git\"; echo \"password=${GH_TOKEN_MASTER}\"; }; f"
+
+# Optional: Set your git identity if it's not already in your dotfiles
+git config --global user.email "your-email@example.com"
+git config --global user.name "Jim Briglio"
